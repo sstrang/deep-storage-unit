@@ -8,6 +8,22 @@ Packed unit graphic from calcwizard's Packing Tape (MIT). https://mods.factorio.
 
 ---
 
+### Nullius support
+This mod is compatible with [Nullius](https://mods.factorio.com/mod/nullius).
+When Nullius is active, the memory-unit recipe and technology are automatically
+re-anchored into the Nullius tech tree:
+
+- **Era:** Late Physics (after `nullius-distribution-5`, once boxing/logistic
+  chests are your default logistics method).
+- **Prerequisites:** distribution-5, storage-3 (large chest 2), battery-storage-3.
+- **Recipe:** 4x large chest 2, 4x battery 2, 16x efficiency module 2.
+- **Science cost:** the six Nullius packs through Physics (count 3000, time 50).
+
+Without Nullius the mod behaves exactly as before — the patch only runs when
+Nullius is detected.
+
+---
+
 ### Packed units
 Q: What happens when a unit is broken? Are my items lost?
 

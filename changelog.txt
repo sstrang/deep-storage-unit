@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.9
+Date: 2026-06-23
+  Compatibility:
+    - Added Nullius support. When Nullius is active, the memory-unit recipe and
+      technology are re-anchored into the Nullius tech tree (late Physics era,
+      after distribution-5) using Nullius items and science packs. Without
+      Nullius the mod is unchanged.
+---------------------------------------------------------------------------------------------------
 Version: 1.6.8
 Date: 2024-12-25
   Bugfixes:
