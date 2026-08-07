@@ -1,11 +1,11 @@
 {
   "name": "deep-storage-unit",
-  "version": "1.6.9",
+  "version": "1.7.0",
   "title": "Memory Storage",
   "author": "notnotmelon",
   "homepage": "https://github.com/notnotmelon/deep-storage-unit",
   "description": "An alternative to warehouses. The Memory Unit can store an infinite amount of a single item type. The more items you store, the more power it will require!",
-  "factorio_version": "2.0",
+  "factorio_version": "2.1",
   "dependencies": [
     "base >= 2.0.12",
     "(?) Krastorio2",
