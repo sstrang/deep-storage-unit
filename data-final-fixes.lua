@@ -11,10 +11,11 @@
 -- stages), and is guarded so the vanilla definitions are untouched when
 -- Nullius is not active.
 --
--- Placement: late Physics era, after boxing/logistics is the player's default
--- logistics method. The Memory Unit is effectively infinite single-item
--- storage, so it arrives only once the player has fully committed to the
--- boxing + logistic-chest paradigm (nullius-distribution-5).
+-- Placement: late Electrical era, mirroring where the vanilla mod sits in the
+-- base game — after efficiency modules exist, before the chemistry/science
+-- expansion of the Chemical era. Nullius's electrical era runs from
+-- nullius-electrical-engineering (order nullius-db) through ~nullius-dl;
+-- chemical packs first appear at nullius-metallurgy-3 (order nullius-ec).
 
 if not mods["nullius"] then return end
 
@@ -44,10 +45,13 @@ end
 -- ---------------------------------------------------------------------------
 local recipe = data.raw.recipe["memory-unit"]
 if recipe then
+  -- Electrical-era tiers, each ingredient gated by a prerequisite of the tech
+  -- below: large-chest-1 (nullius-storage-2), battery-recharging-1
+  -- (nullius-energy-storage-1), efficiency-module-1 (nullius-optimization-1).
   recipe.ingredients = {
-    {type = "item", name = "nullius-large-chest-2",       amount = 4},
-    {type = "item", name = "nullius-battery-2",           amount = 4},
-    {type = "item", name = "nullius-efficiency-module-2", amount = 16},
+    {type = "item", name = "nullius-large-chest-1",       amount = 4},
+    {type = "item", name = "nullius-battery-recharging-1", amount = 4},
+    {type = "item", name = "nullius-efficiency-module-1",  amount = 16},
   }
   -- Nullius crafts large items in dedicated categories; large-crafting matches
   -- how it builds its chests and storehouses.
@@ -75,26 +79,27 @@ if tech then
   tech.hidden = false
 
   -- Prerequisites:
-  --   nullius-distribution-5   -- tier-2 large logistic chests; boxing is now the default logistics method (Physics era)
-  --   nullius-storage-3        -- provides the nullius-large-chest-2 ingredient
-  --   nullius-battery-storage-3 -- provides the nullius-battery-2 ingredient (Physics era)
+  --   nullius-storage-2        -- provides the nullius-large-chest-1 ingredient
+  --   nullius-energy-storage-1 -- provides the nullius-battery-recharging-1 ingredient
+  --   nullius-optimization-1   -- provides the nullius-efficiency-module-1 ingredient
+  --   nullius-computation      -- circuits/logistics-maturity gate; electrical-era capstone level
   tech.prerequisites = {
-    "nullius-distribution-5",
-    "nullius-storage-3",
-    "nullius-battery-storage-3",
+    "nullius-storage-2",
+    "nullius-energy-storage-1",
+    "nullius-optimization-1",
+    "nullius-computation",
   }
 
-  -- Science cost: the six Nullius packs up to Physics (matches distribution-4/5
-  -- sibling techs: count 3000, time 50).
+  -- Science cost: geology/climatology/mechanical/electrical packs only (the
+  -- electrical era has no chemical packs yet). Sits between sibling counts of
+  -- that era — above traffic-control (30), below robotics-1 (80).
   tech.unit = {
-    count = 3000,
+    count = 150,
     ingredients = {
       {"nullius-geology-pack", 1},
       {"nullius-climatology-pack", 1},
       {"nullius-mechanical-pack", 1},
       {"nullius-electrical-pack", 1},
-      {"nullius-chemical-pack", 1},
-      {"nullius-physics-pack", 1},
     },
     time = 50,
   }

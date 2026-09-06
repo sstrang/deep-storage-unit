@@ -13,11 +13,14 @@ This mod is compatible with [Nullius](https://mods.factorio.com/mod/nullius).
 When Nullius is active, the memory-unit recipe and technology are automatically
 re-anchored into the Nullius tech tree:
 
-- **Era:** Late Physics (after `nullius-distribution-5`, once boxing/logistic
-  chests are your default logistics method).
-- **Prerequisites:** distribution-5, storage-3 (large chest 2), battery-storage-3.
-- **Recipe:** 4x large chest 2, 4x battery 2, 16x efficiency module 2.
-- **Science cost:** the six Nullius packs through Physics (count 3000, time 50).
+- **Era:** Late Electrical (after efficiency modules exist, before the
+  Chemical era's science expansion — mirroring the mod's vanilla placement
+  relative to efficiency modules and chemical science).
+- **Prerequisites:** storage-2 (large chest 1), energy-storage-1 (battery
+  recharging 1), optimization-1 (efficiency module 1), computation.
+- **Recipe:** 4x large chest 1, 4x battery recharging 1, 16x efficiency module 1.
+- **Science cost:** the four electrical-era packs — geology, climatology,
+  mechanical, electrical (count 150, time 50).
 
 Without Nullius the mod behaves exactly as before — the patch only runs when
 Nullius is detected.

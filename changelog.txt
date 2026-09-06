@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.2
+Date: 2026-09-06
+  Changes:
+    - Nullius: moved the memory-unit technology from the late Physics era to
+      the late Electrical era, mirroring where the mod sits in the base game.
+      New prerequisites: storage-2, energy-storage-1, optimization-1, and
+      computation (all electrical-era). New recipe: 4x large chest 1,
+      4x battery recharging 1, 16x efficiency module 1. Science cost is now
+      the four electrical-era packs at count 150.
+---------------------------------------------------------------------------------------------------
 Version: 1.7.1
 Date: 2026-09-06
   Bugfixes:
