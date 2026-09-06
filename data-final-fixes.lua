@@ -46,12 +46,13 @@ end
 local recipe = data.raw.recipe["memory-unit"]
 if recipe then
   -- Electrical-era tiers, each ingredient gated by a prerequisite of the tech
-  -- below: large-chest-1 (nullius-storage-2), battery-recharging-1
-  -- (nullius-energy-storage-1), efficiency-module-1 (nullius-optimization-1).
+  -- below: large-chest-1 (nullius-storage-2), constant-combinator — Nullius's
+  -- "memory circuit" — (nullius-computation), efficiency-module-1
+  -- (nullius-optimization-1).
   recipe.ingredients = {
     {type = "item", name = "nullius-large-chest-1",       amount = 4},
-    {type = "item", name = "nullius-battery-recharging-1", amount = 4},
-    {type = "item", name = "nullius-efficiency-module-1",  amount = 16},
+    {type = "item", name = "constant-combinator",         amount = 4},
+    {type = "item", name = "nullius-efficiency-module-1", amount = 16},
   }
   -- Nullius crafts large items in dedicated categories; large-crafting matches
   -- how it builds its chests and storehouses. Factorio 2.1 merged `category`
@@ -81,12 +82,10 @@ if tech then
 
   -- Prerequisites:
   --   nullius-storage-2        -- provides the nullius-large-chest-1 ingredient
-  --   nullius-energy-storage-1 -- provides the nullius-battery-recharging-1 ingredient
   --   nullius-optimization-1   -- provides the nullius-efficiency-module-1 ingredient
-  --   nullius-computation      -- circuits/logistics-maturity gate; electrical-era capstone level
+  --   nullius-computation      -- provides the constant-combinator ("memory circuit") ingredient
   tech.prerequisites = {
     "nullius-storage-2",
-    "nullius-energy-storage-1",
     "nullius-optimization-1",
     "nullius-computation",
   }

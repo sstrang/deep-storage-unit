@@ -16,9 +16,9 @@ re-anchored into the Nullius tech tree:
 - **Era:** Late Electrical (after efficiency modules exist, before the
   Chemical era's science expansion — mirroring the mod's vanilla placement
   relative to efficiency modules and chemical science).
-- **Prerequisites:** storage-2 (large chest 1), energy-storage-1 (battery
-  recharging 1), optimization-1 (efficiency module 1), computation.
-- **Recipe:** 4x large chest 1, 4x battery recharging 1, 16x efficiency module 1.
+- **Prerequisites:** storage-2 (large chest 1), optimization-1 (efficiency
+  module 1), computation (constant combinator — Nullius's "memory circuit").
+- **Recipe:** 4x large chest 1, 4x constant combinator, 16x efficiency module 1.
 - **Science cost:** the four electrical-era packs — geology, climatology,
   mechanical, electrical (count 150, time 50).
 
