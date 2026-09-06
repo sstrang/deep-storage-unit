@@ -22,6 +22,13 @@ re-anchored into the Nullius tech tree:
 Without Nullius the mod behaves exactly as before — the patch only runs when
 Nullius is detected.
 
+**v1.7.1 fix:** the original integration only re-anchored the recipe and
+technology. Nullius's hiding passes (which hide everything without a
+`nullius-` name or order) still hid the memory-unit item, entity, and recipe,
+and disabled the technology — leaving the mod inert. The integration now
+reverses those flags, so the technology appears in the Nullius tree and the
+recipe unlocks properly when researched.
+
 ---
 
 ### Packed units

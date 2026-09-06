@@ -19,6 +19,27 @@
 if not mods["nullius"] then return end
 
 -- ---------------------------------------------------------------------------
+-- Un-hide from Nullius's hiding passes
+--
+-- Nullius's prototypes/hidden.lua (data-updates stage) hides every item,
+-- entity, recipe, and technology lacking a "nullius-" name or order. That
+-- hides the memory-unit item and entity, hides the recipe, and disables and
+-- hides the technology — leaving the mod completely inert even with the
+-- re-anchored tech below. Reverse the flags here in data-final-fixes;
+-- Nullius runs no further hiding logic after this stage.
+-- ---------------------------------------------------------------------------
+local item = data.raw.item["memory-unit"]
+if item then
+  item.hidden = false
+  item.subgroup = "storage"
+end
+
+local entity = data.raw.container["memory-unit"]
+if entity then
+  entity.hidden = false
+end
+
+-- ---------------------------------------------------------------------------
 -- Recipe: re-ingredient with Nullius items (Physics-era tier)
 -- ---------------------------------------------------------------------------
 local recipe = data.raw.recipe["memory-unit"]
@@ -32,6 +53,15 @@ if recipe then
   -- how it builds its chests and storehouses.
   recipe.category = "large-crafting"
   recipe.always_show_made_in = true
+  -- Undo the hiding pass: hidden + enabled=false would keep the recipe out of
+  -- the crafting menu even after the technology below unlocks it.
+  recipe.hidden = false
+  recipe.enabled = false
+  recipe.allow_as_intermediate = true
+  recipe.allow_decomposition = true
+  -- hidden.lua stamped this on when the order was nil; clear it so the recipe
+  -- sorts naturally in the storage subgroup.
+  recipe.order = nil
 end
 
 -- ---------------------------------------------------------------------------
@@ -39,6 +69,11 @@ end
 -- ---------------------------------------------------------------------------
 local tech = data.raw.technology["memory-unit"]
 if tech then
+  -- Undo the disabling pass: hidden.lua set enabled=false and hidden=true on
+  -- every non-nullius technology; a disabled tech can never be researched.
+  tech.enabled = true
+  tech.hidden = false
+
   -- Prerequisites:
   --   nullius-distribution-5   -- tier-2 large logistic chests; boxing is now the default logistics method (Physics era)
   --   nullius-storage-3        -- provides the nullius-large-chest-2 ingredient

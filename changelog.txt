@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.1
+Date: 2026-09-06
+  Bugfixes:
+    - Fixed Nullius compatibility: Nullius's hiding passes hid the memory-unit
+      item, entity, recipe, and technology (the previous patch only re-anchored
+      the technology, leaving the mod completely inert). The recipe and
+      technology are now un-hidden and gated behind the Nullius tech tree.
+---------------------------------------------------------------------------------------------------
 Version: 1.7.0
 Date: 2026-08-07
   Compatibility:
