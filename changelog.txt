@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.3
+Date: 2026-09-06
+  Bugfixes:
+    - Added a migration that re-enables the memory-unit technology in existing
+      saves. The `enabled` flag is baked into a save on first load and is not
+      re-read from prototypes, so worlds that loaded the mod while the Nullius
+      integration was still broken keep the technology disabled forever. The
+      migration re-enables it (Nullius only). New worlds are unaffected.
+---------------------------------------------------------------------------------------------------
 Version: 1.7.2
 Date: 2026-09-06
   Changes:
