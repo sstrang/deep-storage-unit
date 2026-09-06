@@ -54,8 +54,9 @@ if recipe then
     {type = "item", name = "nullius-efficiency-module-1",  amount = 16},
   }
   -- Nullius crafts large items in dedicated categories; large-crafting matches
-  -- how it builds its chests and storehouses.
-  recipe.category = "large-crafting"
+  -- how it builds its chests and storehouses. Factorio 2.1 merged `category`
+  -- and `additional_categories` into the `categories` array.
+  recipe.categories = {"large-crafting"}
   recipe.always_show_made_in = true
   -- Undo the hiding pass: hidden + enabled=false would keep the recipe out of
   -- the crafting menu even after the technology below unlocks it.
